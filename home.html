@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Question Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #question {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        #researchButton {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+        #researchButton:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+<div id="question">Click the button to generate a research question!</div>
+<button id="researchButton" onclick="generateQuestion()">Research me!</button>
+
+<script>
+    function generateQuestion() {
+        var questions = [
+            "What percentage of users complete the onboarding process?",
+            "Which onboarding steps do users find most challenging or confusing?",
+            "Are there specific features that users engage with during the onboarding process?",
+            "How long does it typically take for users to become active after signing up?",
+            "What percentage of users complete their first transaction or task?",
+            "Which features are most frequently used by active users?",
+            "Are there any features that are rarely used or overlooked by users?",
+            "What is the average time spent using the software per session?",
+            "How frequently do users access advanced features compared to basic ones?",
+            "Are there patterns in feature usage based on user role or subscription level?",
+            "What are the most common user feedback or support requests?",
+            "How do users rate the overall satisfaction with the software?",
+            "Are there recurring themes or issues in user feedback?",
+            "Which features receive the highest positive feedback?",
+            "Are there particular user segments that express higher satisfaction?",
+            "What is the typical user journey from sign-up to becoming a power user?",
+            "At what stage of the user journey do users commonly drop off?",
+            "How does the conversion rate differ between trial and paid users?",
+            "What steps do users take before and after making a purchase decision?",
+            "How does the user journey vary based on the source of acquisition?",
+            "What is the average retention rate for different user cohorts?",
+            "Are there specific events or triggers before user churn?",
+            "How does user engagement change over time?",
+            "Are there patterns in user activity leading up to account cancellation?",
+            "What features are retained users using consistently?",
+            "Can we identify and create segments based on user demographics?",
+            "How do usage patterns differ between small businesses and enterprises?",
+            "Are there distinct usage patterns based on geographical location?",
+            "What features are most popular among users in specific industries?",
+            "How do user behaviors vary between subscription plans?",
+            "How do users respond to new feature releases or updates?",
+            "What impact do A/B tests have on user engagement and satisfaction?",
+            "Are there specific features that lead to increased user retention?",
+            "How quickly do users adopt new features after release?",
+            "What feedback or data emerges from A/B tests that can inform future development?",
+            "How frequently do users access help documentation or tutorials?",
+            "Are there specific features that users struggle to understand?",
+            "What is the most common type of user support request?",
+            "Do users who engage with educational content show different usage patterns?",
+            "How does the availability of in-app guidance impact user behavior?",
+            "What features are more frequently used on the mobile app compared to the web?",
+            "Are there differences in user engagement between mobile and web users?",
+            "How does user behavior change when switching between devices?",
+            "Are there platform-specific pain points reported by users?",
+            "What percentage of users exclusively use either the mobile or web platform?",
+            "How frequently do users customize their dashboards or settings?",
+            "Are there certain customizations that correlate with increased engagement?",
+            "What is the impact of personalized notifications on user activity?",
+            "Do users who personalize their experience show higher retention rates?",
+            "How do user preferences vary based on their role or industry?",
+            "What is the average load time for different pages within the software?",
+            "Are there technical issues that coincide with a decrease in user activity?",
+            "How do users respond to software updates related to performance?",
+            "Are there specific devices or browsers where users experience more issues?",
+            "How often do users encounter errors or glitches while using the software?",
+            "How often do users share data or reports through social integration?",
+            "Are there specific collaboration features that lead to increased user engagement?",
+            "How does user behavior change when working collaboratively within the software?",
+            "What impact does user collaboration have on overall satisfaction?",
+            "Are there features that facilitate team communication and collaboration?",
+            "How do users respond to security updates or changes in compliance standards?",
+            "Are there specific security features that users frequently access?",
+            "What are the common security-related support requests?",
+            "How does user trust in the software impact engagement and retention?",
+            "Are there industries where security features are a more significant concern?",
+            "Which third-party integrations are most popular among users?",
+            "How does the use of integrations impact overall user engagement?",
+            "Are there specific integrations that lead to increased user retention?",
+            "What percentage of users actively explore and use integration options?",
+            "How does the availability of certain integrations influence user satisfaction?",
+            "How often do users access their billing and subscription details?",
+            "Are there patterns in user behavior leading up to subscription renewals or cancellations?",
+            "What impact does pricing changes or promotions have on user activity?",
+            "How do users respond to billing-related communications within the software?",
+            "Are there specific features related to billing that users find confusing?",
+            "How frequently do users reach out to customer support?",
+            "What channels do users prefer for communication with support?",
+            "Are there common issues or questions that can be addressed proactively?",
+            "How does the speed and quality of customer support impact user satisfaction?",
+            "What percentage of support queries result in positive resolution?",
+            "What is the Net Promoter Score (NPS) for different user segments?",
+            "Are there specific user segments with consistently high or low NPS?",
+            "What themes emerge from open-ended survey responses?",
+            "How does NPS correlate with user retention and engagement?",
+            "Are there changes in NPS following major product updates?",
+            "How many users participate in virtual events or webinars?",
+            "What topics or features are users most interested in during these events?",
+            "Do users who attend events show different usage patterns?",
+            "How does the quality of virtual events impact user satisfaction?",
+            "Are there industries or user segments more likely to attend events?",
+            "How many users actively participate in the product community or forums?",
+            "What types of discussions or questions are most common in the community?",
+            "Do active community members exhibit different usage patterns?",
+            "How does community engagement correlate with user retention?",
+            "Are there features or improvements suggested by the community?",
+            "How many users participate in referral programs or advocate for the software?",
+            "Are there specific features that lead to increased user loyalty?",
+            "What incentives are most effective in encouraging user advocacy?",
+            "How do loyal users differ in their engagement compared to regular users?",
+            "What impact does user advocacy have on overall brand perception?"
+        ];
+
+        var randomIndex = Math.floor(Math.random() * questions.length);
+        var randomQuestion = questions[randomIndex];
+
+        document.getElementById("question").innerText = randomQuestion;
+    }
+</script>
+
+</body>
+</html>
